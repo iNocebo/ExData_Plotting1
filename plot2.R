@@ -41,8 +41,14 @@ data$datetime <- strptime(data$datetime, format = "%d/%m/%Y %H:%M:%S")
 
 ## Now we finally have clean, small data of interest to work with.
 
+## Change the language to English, just to be sure.
+Sys.setlocale("LC_TIME", "English")
+
 ## Open the png-Device with the specified width and height, demanded in the project's description.
 png("plot2.png", width = 480, height = 480)
+
+## First we need to set a transparent background in the global graphics parameters
+par(bg = NA)
 
 ## Create the plot as presented in the project's description.
 plot(data$datetime, data$Global_active_power, type = "l", xlab = "",
